@@ -1,18 +1,46 @@
 package com.picturediscription.example;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 //import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-//import android.view.Menu;
-//import android.view.MenuItem;
+import android.widget.*;
+import android.widget.AdapterView.OnItemClickListener;
+import android.view.*;
 
 public class MainActivity extends Activity {
+    private ImageView mImageView;
+    private Integer[] mThumbIds = { R.drawable.p1, R.drawable.p2,R.drawable.p3, R.drawable.p4, R.drawable.p5,
+    		R.drawable.p9, R.drawable.aburana,R.drawable.sakura};
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+        mImageView = (ImageView) findViewById(R.id.imageView1);
+        // サムネイルのギャラリーを作成
+        setGallery();
 	}
+	
+    public void setGallery() {
+        Gallery g = (Gallery) findViewById(R.id.gallery1);
+        g.setAdapter(new ImageAdapter(this, mThumbIds));
+
+        g.setOnItemClickListener(new OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                        Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                }
+        });
+    }
+
+    public void setImageBitmap(Bitmap bmp) {
+        mImageView.setImageBitmap(bmp);
+    }
+
+	
+	
 
 //	@Override
 //	public boolean onCreateOptionsMenu(Menu menu) {
