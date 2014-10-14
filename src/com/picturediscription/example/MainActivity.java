@@ -9,12 +9,12 @@ import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity{
 	private ImageButton imgbtn1;
-	private ImageView imgbtn2;
-	private ImageView imgbtn3;
-	private ImageView imgbtn4;
-	private ImageView imgbtn5;
-	private ImageView imgbtn6;
-	private ImageView imgbtn7;
+	private ImageButton imgbtn2;
+	private ImageButton imgbtn3;
+	private ImageButton imgbtn4;
+	private ImageButton imgbtn5;
+	private ImageButton imgbtn6;
+	private ImageButton imgbtn7;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,17 +23,17 @@ public class MainActivity extends Activity{
 
 		imgbtn1 = (ImageButton) findViewById(R.id.imageButton1);
 		imgbtn1.setOnClickListener(new ImageClickListener());
-		imgbtn2 = (ImageView) findViewById(R.id.imageButton2);
+		imgbtn2 = (ImageButton) findViewById(R.id.imageButton2);
 		imgbtn2.setOnClickListener(new ImageClickListener());
-		imgbtn3 = (ImageView) findViewById(R.id.imageButton3);
+		imgbtn3 = (ImageButton) findViewById(R.id.imageButton3);
 		imgbtn3.setOnClickListener(new ImageClickListener());
-		imgbtn4 = (ImageView) findViewById(R.id.imageButton4);
+		imgbtn4 = (ImageButton) findViewById(R.id.imageButton4);
 		imgbtn4.setOnClickListener(new ImageClickListener());
-		imgbtn5 = (ImageView) findViewById(R.id.imageButton5);
+		imgbtn5 = (ImageButton) findViewById(R.id.imageButton5);
 		imgbtn5.setOnClickListener(new ImageClickListener());
-		imgbtn6 = (ImageView) findViewById(R.id.imageButton6);
+		imgbtn6 = (ImageButton) findViewById(R.id.imageButton6);
 		imgbtn6.setOnClickListener(new ImageClickListener());
-		imgbtn7 = (ImageView) findViewById(R.id.imageButton7);
+		imgbtn7 = (ImageButton) findViewById(R.id.imageButton7);
 		imgbtn7.setOnClickListener(new ImageClickListener());
 		
 	}
