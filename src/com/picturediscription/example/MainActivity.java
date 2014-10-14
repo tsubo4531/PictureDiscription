@@ -1,63 +1,66 @@
 package com.picturediscription.example;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-//import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.*;
-import android.widget.AdapterView.OnItemClickListener;
 import android.view.*;
+import android.view.View.OnClickListener;
 
-public class MainActivity extends Activity {
-    private ImageView mImageView;
-    private Integer[] mThumbIds = { R.drawable.p1, R.drawable.p2,R.drawable.p3, R.drawable.p4, R.drawable.p5,
-    		R.drawable.p9, R.drawable.aburana,R.drawable.sakura};
-
-
+public class MainActivity extends Activity{
+	private ImageButton imgbtn1;
+	private ImageView imgbtn2;
+	private ImageView imgbtn3;
+	private ImageView imgbtn4;
+	private ImageView imgbtn5;
+	private ImageView imgbtn6;
+	private ImageView imgbtn7;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		imgbtn1 = (ImageButton) findViewById(R.id.imageButton1);
+		imgbtn1.setOnClickListener(new ImageClickListener());
+		imgbtn2 = (ImageView) findViewById(R.id.imageButton2);
+		imgbtn2.setOnClickListener(new ImageClickListener());
+		imgbtn3 = (ImageView) findViewById(R.id.imageButton3);
+		imgbtn3.setOnClickListener(new ImageClickListener());
+		imgbtn4 = (ImageView) findViewById(R.id.imageButton4);
+		imgbtn4.setOnClickListener(new ImageClickListener());
+		imgbtn5 = (ImageView) findViewById(R.id.imageButton5);
+		imgbtn5.setOnClickListener(new ImageClickListener());
+		imgbtn6 = (ImageView) findViewById(R.id.imageButton6);
+		imgbtn6.setOnClickListener(new ImageClickListener());
+		imgbtn7 = (ImageView) findViewById(R.id.imageButton7);
+		imgbtn7.setOnClickListener(new ImageClickListener());
 		
-        mImageView = (ImageView) findViewById(R.id.imageView1);
-        // サムネイルのギャラリーを作成
-        setGallery();
 	}
 	
-    public void setGallery() {
-        Gallery g = (Gallery) findViewById(R.id.gallery1);
-        g.setAdapter(new ImageAdapter(this, mThumbIds));
+	class ImageClickListener implements OnClickListener{
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(MainActivity.this, ImageDiscription.class);
+			if(v == imgbtn1){
+				intent.putExtra("SELECTED_PICT", "p1");
+			}else if(v == imgbtn2){
+				intent.putExtra("SELECTED_PICT", "p2");
+			}else if(v == imgbtn3){
+				intent.putExtra("SELECTED_PICT", "p3");
+			}else if(v == imgbtn4){
+				intent.putExtra("SELECTED_PICT", "p4");
+			}else if(v == imgbtn5){
+				intent.putExtra("SELECTED_PICT", "aburana");
+			}else if(v == imgbtn6){
+				intent.putExtra("SELECTED_PICT", "sakura");
+			}else if(v == imgbtn7){
+				intent.putExtra("SELECTED_PICT", "p5");
+			}
+			
+			startActivity(intent);
 
-        g.setOnItemClickListener(new OnItemClickListener() {
-                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                        Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-                }
-        });
-    }
-
-    public void setImageBitmap(Bitmap bmp) {
-        mImageView.setImageBitmap(bmp);
-    }
-
-	
-	
-
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.main, menu);
-//		return true;
-//	}
-//
-//	@Override
-//	public boolean onOptionsItemSelected(MenuItem item) {
-//		// Handle action bar item clicks here. The action bar will
-//		// automatically handle clicks on the Home/Up button, so long
-//		// as you specify a parent activity in AndroidManifest.xml.
-//		int id = item.getItemId();
-//		if (id == R.id.action_settings) {
-//			return true;
-//		}
-//		return super.onOptionsItemSelected(item);
-//	}
+		}		
+		
+	}
 }

@@ -4,5 +4,12 @@
     <string name="app_name">PictureDiscription</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="p1_str">実家の猫です</string>
+    <string name="p2_str">友達の家の犬です</string>
+    <string name="p3_str">道端の猫です</string>
+    <string name="p4_str">実家の犬です</string>
+    <string name="p5_str">奈良の鹿です</string>
+	<string name="p6_str">アブラナの花です</string>
+	<string name="p7_str">桜の花です</string>
+    
 </resources>
